@@ -77,22 +77,53 @@
 \pagenumbering{arabic}
 
 \section{Scope}
+The objective of this test iterations is listed in the requirements section, the requirements which are considered out of scope are listed in the Not in the test scope section. The priorities regarding the requirements are stated in the priorities section. 
 
 \subsection{Requirements}
 
+\textbf{Functional Requirements}
+\begin{itemize}
+\item UC1 Start Server
+\item UC2 Stop Server
+\item UC3 Request Shared Resource
+\end{itemize}
+
+\textbf{Non-functional Requirements}
+\begin{itemize}
+\item Responsive under high load
+\item Minimum requirements for \textit{HTTP 1.1}
+\item Work on Windows, Mac and Linux
+\item Licensed under \textit{GPL-2.0}
+\item Plain-text access log
+\end{itemize}
+
+TODO: Define \textit{responsive, high load, Work on Win/Mac/Lin}
+
 \subsubsection{Not in the test scope}
+Since the testers will not have access to a Windows environment, the requirement of the web server to work in a Windows environment will be tested during the next iteration.
 
 \subsection{Priorities}
+The highest priority of this test iteration will be to test the functional requirements specified in the use cases along with stress testing the web server and ensure that the access log is available in plain text.
+
+A lower priority during this test iteration is to test \textit{HTTP 1.1} requirements and perform tests in different operating system environments.
 
 \section{Method}
+As specified by the product owner, the tests will primarily be performed using manual testing. However, stress tests will be performed using the application \textit{JMeter}. All functional requirements will be tested before the non-functional requirements. The source code is available to the testers but Black-Box testing will mainly be performed because of time-restraints.
 
 \section{Risk}
+If a member of the software testing team gets sick or for other reasons can't participate in the test iteration the lower priority of the scope will not be performed. If this happens, there is also a risk that the performed tests will be less extensive. 
+
+Another risk is if a team member loses access of their computer environment due to computer failure. In this case, tests for the affected operating system environment will not be performed.
 
 \section{Test Results}
+The test results of the manual and stress tests will be gathered and reported in a test result document which will contain a Tractability Matrix that will show how the test cases and use cases are connected. Along with a test case table that will show the result of each test.
 
 \subsection{Responsibilities}
+Each member of the software testing team is responsible for learning and understanding the tools listed in the Test Strategy document. 
+
+The software testing team is responsible for creating suitable test cases, executing the tests and gather the test results in the test results document. The project manager is then responsible for reviewing the test results and take appropriate action.
 
 \subsection{Deadline}
-
+The test iteration shall be concluded by the 23 of December 2017. By this date, the Test Strategy, Test Plan, Test Cases and Test Results shall be completed and submitted to the product owner for review. 
 
 \end{document}
