@@ -115,22 +115,45 @@ The system shall notify the administrator if the provided port socket is unavail
 \subsection{Restriction on shared resource container}
 
 The system shall give an error when the shared resource container is protected.\\
-\textbf{Test Input} \\ Port socket: 8080 \textit{correct} \\ Shared resource: /var/root/ (MAC) /root/ (Linux) \\ \textit{incorrect}
+\textbf{Test Input} \\ Port socket: 8080 \textit{correct} \\ Shared resource: \texttt{/var/root/} (MAC) \texttt{/root/} (Linux) \\ \textit{incorrect}
  
 \subsubsection{Input}
 \begin{itemize}
 \item Navigate to the .jar file location
 \item input \texttt{"java -jar MyWebServer.jar 8080 /var/www/"}
 \item Press enter
-\item Open a web browser
-\item Enter \texttt{"localhost:8080"}
+\end{itemize} 
+
+\subsubsection{Output}
+\textbf{Console}
+\begin{itemize}
+\item \texttt{"No access to folder /var/root"} on Mac and \texttt{"No access to folder /root/"} on Linux shows in console window
+\end{itemize}
+
+\subsection{Access log could not be written}
+
+The system shall report when the access log could not be written to.\\
+\textbf{Test Input} \\ Port socket: 8080 \textit{correct} \\ Shared resource: MyWebServer-master\ 12.15.02/tests/se/lnu/http/resources/inner/ \\ \textit{correct}
+ 
+\subsubsection{Input}
+\begin{itemize}
+\item Navigate to the .jar file location
+\item If there is an existing log.txt, remove it
+\item Enter \texttt{touch log.txt}
+\item Enter \texttt{chflags uchg log.txt} on Mac and \texttt{chmod 000 log.txt} on Linux
+\item input \texttt{"java -jar MyWebServer.jar \\ 8080 MyWebServer-master\ 12.15.02/tests/se/lnu/http/resources/inner/"}
 \item Press enter
 \end{itemize} 
 
 \subsubsection{Output}
 \textbf{Console}
 \begin{itemize}
-\item \texttt{"No access to /var/www/"} shows in console window
+\item \texttt{"Cannot write to server log file log.txt"} shows in console window
+\end{itemize}
+
+\subsubsection{After test}
+\begin{itemize}
+\item Remove log.txt \texttt{chflags nouhcg log.txt \&\& rm -f log.txt} on Mac and \texttt{rm -f log.txt} on Linux
 \end{itemize}
 
 \subsection{Starting Server}
