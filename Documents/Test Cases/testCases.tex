@@ -77,36 +77,98 @@
 
 \newpage
 
-\section{Test Case 2.1: Stop Server}
+\section{Use Case: Start Server}
+
+\subsection{Unavailable socket}
+
+The system shall notify the administrator if the provided port socket is unavailable.\\
+\textbf{Test Input} \\ Port socket: 80 \textit{incorrect} \\ Shared resource: MyWebServer-master\ 12.15.02/tests/se/lnu/http/resources/inner/ \\ \textit{correct}
+ 
+\subsubsection{Input}
+\begin{itemize}
+\item Navigate to the .jar file location
+\item input \texttt{"java -jar MyWebServer.jar \\
+80 MyWebServer-master\ 12.15.02/tests/se/lnu/http/resources/inner/"}
+\item Press enter
+\item Open a web browser
+\item Enter \texttt{"localhost:80"}
+\item Press enter
+\end{itemize} 
+
+\subsubsection{Output}
+\textbf{Web Browser}
+\begin{itemize}
+\item Display unable to connect to the server
+\end{itemize}
+
+\textbf{Console}
+\begin{itemize}
+\item \texttt{"Port is taken"} shows in console window
+\end{itemize}
+
+\subsection{Starting Server}
+
+An administrator should be able to start the server by running the .jar file and provide port socket and shared resources folder.\\
+\textbf{Test Input} \\ Port socket: 80 \\ Shared resource: MyWebServer-master\ 12.15.02/tests/se/lnu/http/resources/inner/
+\subsubsection{Input}
+\begin{itemize}
+\item Navigate to the .jar file location
+\item input \texttt{"java -jar MyWebServer.jar \\
+8080 MyWebServer-master\ 12.15.02/tests/se/lnu/http/resources/inner/"}
+\item Press enter key
+\item Open a web browser
+\item Enter \texttt{"localhost:8080"}
+\item Press enter
+\end{itemize}
+
+\subsubsection{Output}
+\textbf{Web Browser}
+\begin{itemize}
+\item "It works" is shown on the page \textit{(see figure: \ref{TC1.1})}
+\end{itemize}
+
+\textbf{Console}
+\begin{itemize}
+\item \texttt{"HTTP Server Started"} is shown in console window
+\end{itemize}
+
+\begin{figure}[h]
+\includegraphics[scale=0.5]{output_clarification/TC1-1.png} 
+\caption{Output for successfully starting server}
+\label{TC1.1}
+\end{figure}
+
+\section{Use Case: Stop Server}
+
+\subsection{Stopping Server}
 
 An administrator should be able to stop the server by inputting "stop" into a running server's command line.
 
-\subsection{Input}
+\subsubsection{Input}
 \begin{itemize}
 \item Web server is running on port 8080
 \item Input "stop" into the server's command line window and press Enter
 \item Open a web browser and navigate to "http://localhost:8080/"
 \end{itemize}
 
-\subsection{Output}
+\subsubsection{Output}
 \begin{itemize}
 \item A page with the header "Unable to connect" should appear in the web browser.
 \end{itemize}
 
-\newpage
 
-\section{Test Case 2.2: Access log written to when server is stopped}
+\subsection{Access log written to when server is stopped}
 
 Make sure that an entry is written to the server's access log when an administrator manually stops the server.
 
-\subsection{Input}
+\subsubsection{Input}
 \begin{itemize}
 \item Web server is running
 \item Input "stop" into command line window and press Enter
 \item Open sever access log in a text editor
 \end{itemize}
 
-\subsection{Output}
+\subsubsection{Output}
 \begin{itemize}
 \item The text "HTTP Server stopped" should be displayed on the last line of the access log.
 \end{itemize}
