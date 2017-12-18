@@ -103,7 +103,28 @@ The system shall notify the administrator if the provided port socket is unavail
 
 \textbf{Console}
 \begin{itemize}
-\item \texttt{"Port is taken"} shows in console window
+\item \texttt{"Socket 80 was taken"} shows in console window
+\end{itemize}
+
+\subsection{Restriction on shared resource container}
+
+The system shall give an error when the shared resource container is protected.\\
+\textbf{Test Input} \\ Port socket: 8080 \textit{correct} \\ Shared resource: /var/root/ (MAC) /root/ (Linux) \\ \textit{incorrect}
+ 
+\subsubsection{Input}
+\begin{itemize}
+\item Navigate to the .jar file location
+\item input \texttt{"java -jar MyWebServer.jar 8080 /var/www/"}
+\item Press enter
+\item Open a web browser
+\item Enter \texttt{"localhost:8080"}
+\item Press enter
+\end{itemize} 
+
+\subsubsection{Output}
+\textbf{Console}
+\begin{itemize}
+\item \texttt{"No access to /var/www/"} shows in console window
 \end{itemize}
 
 \subsection{Starting Server}
