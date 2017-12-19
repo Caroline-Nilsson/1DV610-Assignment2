@@ -1,6 +1,7 @@
 \documentclass[a4paper, 12pt]{article}
 \usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
 \usepackage[T1]{fontenc}
+\usepackage{float}
 \usepackage{times}
 \usepackage[utf8]{inputenc}
 \usepackage{wallpaper}
@@ -85,7 +86,7 @@ This section provides Test Cases for Use Case 1 starting the server. Below is a 
 \item Navigate to the .jar file location
 \end{itemize}
 
-\subsection{Unavailable socket}
+\subsection{Unavailable socket (Manual)}
 
 The system shall notify the administrator if the provided port socket is unavailable.\\
 \textbf{Test Input} \\ Port socket: 80 \textit{incorrect} \\ Shared resource: MyWebServer-master\ 12.15.02/tests/se/lnu/http/resources/inner/ \\ \textit{correct}
@@ -94,7 +95,7 @@ The system shall notify the administrator if the provided port socket is unavail
 \begin{itemize}
 \item Navigate to the .jar file location
 \item input \texttt{"java -jar MyWebServer.jar \\
-80 MyWebServer-master\ 12.15.02/tests/se/lnu/http/resources/inner/"}
+80 MyWebServer-master\ 12.15.02/tests/\\se/lnu/http/resources/inner/"}
 \item Press enter
 \item Open a web browser
 \item Enter \texttt{"localhost:80"}
@@ -112,7 +113,7 @@ The system shall notify the administrator if the provided port socket is unavail
 \item \texttt{"Socket 80 was taken"} shows in console window
 \end{itemize}
 
-\subsection{Restriction on shared resource container}
+\subsection{Restriction on shared resource container (Manual)}
 
 The system shall give an error when the shared resource container is protected.\\
 \textbf{Test Input} \\ Port socket: 8080 \textit{correct} \\ Shared resource: \texttt{/var/root/} (MAC) \texttt{/root/} (Linux) \\ \textit{incorrect}
@@ -130,7 +131,7 @@ The system shall give an error when the shared resource container is protected.\
 \item \texttt{"No access to folder /var/root"} on Mac and \texttt{"No access to folder /root/"} on Linux shows in console window
 \end{itemize}
 
-\subsection{Access log could not be written}
+\subsection{Access log could not be written (Manual)}
 
 The system shall report when the access log could not be written to.\\
 \textbf{Test Input} \\ Port socket: 8080 \textit{correct} \\ Shared resource: MyWebServer-master\ 12.15.02/tests/se/lnu/http/resources/inner/ \\ \textit{correct}
@@ -141,7 +142,7 @@ The system shall report when the access log could not be written to.\\
 \item If there is an existing log.txt, remove it
 \item Enter \texttt{touch log.txt}
 \item Enter \texttt{chflags uchg log.txt} on Mac and \texttt{chmod 000 log.txt} on Linux
-\item input \texttt{"java -jar MyWebServer.jar \\ 8080 MyWebServer-master\ 12.15.02/tests/se/lnu/http/resources/inner/"}
+\item input \texttt{"java -jar MyWebServer.jar \\ 8080 MyWebServer-master\ 12.15.02/tests/\\se/lnu/http/resources/inner/"}
 \item Press enter
 \end{itemize} 
 
@@ -156,15 +157,15 @@ The system shall report when the access log could not be written to.\\
 \item Remove log.txt \texttt{chflags nouhcg log.txt \&\& rm -f log.txt} on Mac and \texttt{rm -f log.txt} on Linux
 \end{itemize}
 
-\subsection{Starting Server}
+\subsection{Starting Server (Manual)}
 
 An administrator should be able to start the server by running the .jar file and provide port socket and shared resources folder.\\
-\textbf{Test Input} \\ Port socket: 80 \\ Shared resource: MyWebServer-master\ 12.15.02/tests/se/lnu/http/resources/inner/
+\textbf{Test Input} \\ Port socket: 8080 \\ Shared resource: MyWebServer-master\ 12.15.02/tests/se/lnu/http/resources/inner/
 \subsubsection{Input}
 \begin{itemize}
 \item Navigate to the .jar file location
 \item input \texttt{"java -jar MyWebServer.jar \\
-8080 MyWebServer-master\ 12.15.02/tests/se/lnu/http/resources/inner/"}
+8080 MyWebServer-master\ 12.15.02/tests/\\se/lnu/http/resources/inner/"}
 \item Press enter key
 \item Open a web browser
 \item Enter \texttt{"localhost:8080"}
@@ -182,21 +183,23 @@ An administrator should be able to start the server by running the .jar file and
 \item \texttt{"HTTP Server Started"} is shown in console window
 \end{itemize}
 
-\begin{figure}[h]
+\begin{figure}[H]
 \includegraphics[scale=0.5]{output_clarification/TC1-1.png} 
 \caption{Output for successfully starting server}
 \label{TC1.1}
 \end{figure}
 
+\newpage
 \section{Use Case: Stop Server}
 
-\subsection{Stopping Server}
+Before each test in this section perform test case 1.4 in order to start the server and assure it runs correctly.
+
+\subsection{Stopping Server (Manual)}
 
 An administrator should be able to stop the server by inputting "stop" into a running server's command line.
 
 \subsubsection{Input}
 \begin{itemize}
-\item Web server is running on port 8080
 \item Input "stop" into the server's command line window and press Enter
 \item Open a web browser and navigate to "http://localhost:8080/"
 \end{itemize}
@@ -207,19 +210,135 @@ An administrator should be able to stop the server by inputting "stop" into a ru
 \end{itemize}
 
 
-\subsection{Access log written to when server is stopped}
+\subsection{Access log written to when server is stopped (Manual)}
 
 Make sure that an entry is written to the server's access log when an administrator manually stops the server.
 
 \subsubsection{Input}
 \begin{itemize}
-\item Web server is running
-\item Input "stop" into command line window and press Enter
-\item Open sever access log in a text editor
+\item Input "stop" into server's command line window and press Enter
+\item Open server access log in a text editor
 \end{itemize}
 
 \subsubsection{Output}
 \begin{itemize}
 \item The text "HTTP Server stopped" should be displayed on the last line of the access log.
 \end{itemize}
+
+
+\newpage
+\section{Use Case: Request Shared Resource}
+
+Before each test in this section perform test case 1.4 in order to start the server and assure it runs correctly.
+
+\subsection{Return Response 200 OK (JMeter)}
+
+Ensure that the server return HTTP 1.1 response 200 when a request was successful.
+
+\subsubsection{Input}
+\begin{itemize}
+\item \textit{HTTP Request} GET: \texttt{index.html}
+\item Run test
+\end{itemize}
+
+\subsubsection{Output}
+\begin{itemize}
+\item Server response with response code 200 \textit{(See fig. \ref{TC3.1})}
+\end{itemize}
+
+\begin{figure}[H]
+\includegraphics[scale=0.7]{output_clarification/200OK.png} 
+\caption{200 OK}
+\label{TC3.1}
+\end{figure}
+
+
+\subsection{Return Response 404 NOT FOUND (JMeter)}
+
+Ensure that the server return HTTP 1.1 response 404 when a requested resource does not exist.
+
+\subsubsection{Input}
+\begin{itemize}
+\item \textit{HTTP Request} GET: \texttt{nonexistingfile.txt}
+\item Run test
+\end{itemize}
+
+\subsubsection{Output}
+\begin{itemize}
+\item Server response with response code 404 \textit{(See fig. \ref{TC3.2})}
+\end{itemize}
+
+\begin{figure}[H]
+\includegraphics[scale=0.7]{output_clarification/404NOTFOUND.png} 
+\caption{404 Not Found}
+\label{TC3.2}
+\end{figure}
+
+
+\subsection{Return Response 403 FORBIDDEN (JMeter)}
+
+Ensure that the server return HTTP 1.1 response 403 when the requested resource is outside the shared resource container.
+
+\subsubsection{Input}
+\begin{itemize}
+\item \textit{HTTP Request} GET: \texttt{../secret.html}
+\item Run test
+\end{itemize}
+
+\subsubsection{Output}
+\begin{itemize}
+\item Server response with response code 403 \textit{(See fig. \ref{TC3.3})}
+\end{itemize}
+
+\begin{figure}[H]
+\includegraphics[scale=0.7]{output_clarification/403FORBIDDEN.png} 
+\caption{403 Forbidden}
+\label{TC3.3}
+\end{figure}
+
+\subsection{Return Response 400 BAD REQUEST (JMeter)}
+
+Ensure that the server return HTTP 1.1 response 400 when the URL is malformed.
+
+\subsubsection{Input}
+\begin{itemize}
+\item \textit{HTTP Request} GET: \texttt{\%index.html}
+\item Run test
+\end{itemize}
+
+\subsubsection{Output}
+\begin{itemize}
+\item Server response with response code 400
+\end{itemize}
+
+\newpage
+\section{Requirement: 1 Responsive Under High Load}
+
+\subsection{System response time (JMeter)}
+
+The system should response within 2 seconds when no more than 100 users access the shared resources.
+
+\subsubsection{Input}
+\begin{itemize}
+\item Perform test case 1.4
+\item \textit{Thread Group} Users: 100
+\item \textit{Thread Group} Loop Count: 1000
+\item \textit{HTTP Request} GET: \texttt{index.html}
+\item Run test
+\end{itemize}
+
+\subsubsection{Output}
+\begin{itemize}
+\item maximum server response time does not exceed 2000 ms (2 sec) \textit{(See fig. \ref{TC4.1})}
+\end{itemize}
+
+\begin{figure}[H]
+\includegraphics[scale=0.5]{output_clarification/HighLoad.png} 
+\caption{Maximum Server Response Time}
+\label{TC4.1}
+\end{figure}
+
+
 \end{document}
+
+
