@@ -77,7 +77,8 @@
 \pagenumbering{arabic}
 
 \section{Scope}
-The objective of this test iterations is listed in the requirements section, the requirements which are considered out of scope are listed in the Not in the test scope section. The priorities regarding the requirements are stated in the priorities section. 
+The scope clarifies what objectives are part of this test iteration and what objectives that cannot be completed for different reasons. In the \textit{requirements} section the requirements stated by the product owner is listed, the requirements that will not be tested during this iteration are stated in the \textit{out of scope} section. There is also an \textit{priorities} section that will point out what priorities the different requirements have, that is what the testers should have as main focus early in the iteration to ensure these requirements will be tested.
+
 
 \subsection{Requirements}
 
@@ -89,16 +90,20 @@ The objective of this test iterations is listed in the requirements section, the
 \end{itemize}
 \textbf{Non-functional Requirements}
 \begin{itemize}
-\item Responsive under high load
-\item Minimum requirements for \textit{HTTP 1.1}
-\item Work on Windows, Mac and Linux
+\item Responsive under high load \\the server response time should be less than 2000 ms when 100 users access resources 
+\item Minimum requirements for \textit{HTTP 1.1} \\the response codes \textit{200}, \textit{400}, \textit{403} and \textit{404} should be used at proper times  
+\item Work on Windows, Mac and Linux \\all passing test cases should pass on the operating systems
 \item Licensed under \textit{GPL-2.0}
 \item Plain-text access log
 \end{itemize}
 
-TODO: Define \textit{responsive, high load, Work on Win/Mac/Lin}
+\textbf{In official Requirements}
+\begin{itemize}
+\item Shall have a help function \\the \texttt{--help} command shall provide helpful information to the user
+\item Shall support \textit{https}
+\end{itemize}
 
-\subsubsection{Not in the test scope}
+\subsubsection{Out of scope}
 Since the testers will not have access to a Windows environment, the requirement of the web server to work in a Windows environment will be tested during the next iteration.
 
 \subsection{Priorities}
@@ -107,7 +112,7 @@ The highest priority of this test iteration will be to test the functional requi
 A lower priority during this test iteration is to test \textit{HTTP 1.1} requirements and perform tests in different operating system environments.
 
 \section{Method}
-As specified by the product owner, the tests will primarily be performed using manual testing. However, stress tests will be performed using the application \textit{JMeter}. All functional requirements will be tested before the non-functional requirements. The source code is available to the testers but Black-Box testing will mainly be performed because of time-restraints.
+As specified by the product owner, the tests will primarily be performed using manual testing. However, stress tests and HTTP response code tests will be performed using the application \textit{JMeter}. All functional requirements will be tested before the non-functional requirements. The source code is available to the testers but Black-Box testing will mainly be performed due to time-restraints.
 
 \section{Risk}
 If a member of the software testing team gets sick or for other reasons can't participate in the test iteration the lower priority of the scope will not be performed. If this happens, there is also a risk that the performed tests will be less extensive. 
@@ -115,7 +120,7 @@ If a member of the software testing team gets sick or for other reasons can't pa
 Another risk is if a team member loses access of their computer environment due to computer failure. In this case, tests for the affected operating system environment will not be performed.
 
 \section{Test Results}
-The test results of the manual and stress tests will be gathered and reported in a test result document which will contain a Tractability Matrix that will show how the test cases and use cases are connected. Along with a test case table that will show the result of each test.
+The test results of the manual and stress tests will be gathered and reported in a test result document which will contain a Tractability Matrix that will show how the test cases and use cases are connected. Along with a test case table that will show the result of each test along with difference in results between the operating systems.
 
 \subsection{Responsibilities}
 Each member of the software testing team is responsible for learning and understanding the tools listed in the Test Strategy document. 
