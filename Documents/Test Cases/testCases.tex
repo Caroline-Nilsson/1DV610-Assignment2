@@ -344,6 +344,49 @@ The system should response within 2 seconds when no more than 100 users access t
 \label{TC4.1}
 \end{figure}
 
+\section{Informal Requirement: Usability}
+
+\subsection{Show Help Text When Faulty Parameter Is Given}
+
+The web server should show help text informing the user on how to start the server when the user gives a faulty command line argument. 
+
+\subsubsection{Input}
+\begin{itemize}
+\item Navigate to the MyWebServer.jar folder in the console window
+\item Input \texttt{"java -jar MyWebServer.jar 0"}
+\item Press enter
+\end{itemize} 
+
+\subsubsection{Output} 
+\begin{itemize}
+\item The text \texttt{"Enter a valid port 1-65 535 and a optional URL"} is shown in the console window
+\end{itemize}
+
+\section{Informal Requirement: Security}
+
+\subsection{HTTPS}
+
+The web server shall use \textit{HTTPS} as standard.
+
+\subsubsection{Input}
+\begin{itemize}
+\item Perform test case 1.4
+\item Open a web browser
+\item Enter \texttt{"https://localhost:8080"} into the address bar
+\item Press enter
+\end{itemize}
+
+\subsubsection{Output}
+\begin{itemize}
+\item "It works" is shown on the page \textit{(see figure: \ref{TC6.1})}
+\end{itemize}
+
+\begin{figure}[H]
+\includegraphics[scale=0.5]{output_clarification/TC1-1.png} 
+\caption{Output for successfully starting server}
+\label{TC6.1}
+\end{figure}
+
 
 \end{document}
 
