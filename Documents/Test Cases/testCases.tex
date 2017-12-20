@@ -93,7 +93,6 @@ The system shall notify the administrator if the provided port socket is unavail
  
 \subsubsection{Input}
 \begin{itemize}
-\item Navigate to the .jar file location
 \item input \texttt{"java -jar MyWebServer.jar \\
 80 MyWebServer-master\ 12.15.02/tests/\\se/lnu/http/resources/inner/"}
 \item Press enter
@@ -120,7 +119,6 @@ The system shall give an error when the shared resource container is protected.\
  
 \subsubsection{Input}
 \begin{itemize}
-\item Navigate to the .jar file location
 \item input \texttt{"java -jar MyWebServer.jar 8080 /var/www/"}
 \item Press enter
 \end{itemize} 
@@ -138,10 +136,9 @@ The system shall report when the access log could not be written to.\\
  
 \subsubsection{Input}
 \begin{itemize}
-\item Navigate to the .jar file location
 \item If there is an existing log.txt, remove it
-\item Enter \texttt{touch log.txt}
-\item Enter \texttt{chflags uchg log.txt} on Mac and \texttt{chmod 000 log.txt} on Linux
+\item Enter \texttt{"touch log.txt"}
+\item Enter \texttt{"chflags uchg log.txt"} on Mac and \texttt{"chmod 000 log.txt"} on Linux
 \item input \texttt{"java -jar MyWebServer.jar \\ 8080 MyWebServer-master\ 12.15.02/tests/\\se/lnu/http/resources/inner/"}
 \item Press enter
 \end{itemize} 
@@ -154,7 +151,7 @@ The system shall report when the access log could not be written to.\\
 
 \subsubsection{After test}
 \begin{itemize}
-\item Remove log.txt \texttt{chflags nouhcg log.txt \&\& rm -f log.txt} on Mac and \texttt{rm -f log.txt} on Linux
+\item Remove log.txt \texttt{"chflags nouhcg log.txt \&\& rm -f log.txt"} on Mac and \texttt{"rm -f log.txt"} on Linux
 \end{itemize}
 
 \subsection{Starting Server (Manual)}
@@ -163,7 +160,6 @@ An administrator should be able to start the server by running the .jar file and
 \textbf{Test Input} \\ Port socket: 8080 \\ Shared resource: MyWebServer-master\ 12.15.02/tests/se/lnu/http/resources/inner/
 \subsubsection{Input}
 \begin{itemize}
-\item Navigate to the .jar file location
 \item input \texttt{"java -jar MyWebServer.jar \\
 8080 MyWebServer-master\ 12.15.02/tests/\\se/lnu/http/resources/inner/"}
 \item Press enter key
@@ -184,6 +180,7 @@ An administrator should be able to start the server by running the .jar file and
 \end{itemize}
 
 \begin{figure}[H]
+\centering
 \includegraphics[scale=0.5]{output_clarification/TC1-1.png} 
 \caption{Output for successfully starting server}
 \label{TC1.1}
@@ -237,7 +234,7 @@ Ensure that the server return HTTP 1.1 response 200 when a request was successfu
 
 \subsubsection{Input}
 \begin{itemize}
-\item \textit{HTTP Request} GET: \texttt{index.html}
+\item \textit{HTTP Request} GET: \texttt{"index.html"}
 \item Run test
 \end{itemize}
 
@@ -247,6 +244,7 @@ Ensure that the server return HTTP 1.1 response 200 when a request was successfu
 \end{itemize}
 
 \begin{figure}[H]
+\centering
 \includegraphics[scale=0.7]{output_clarification/200OK.png} 
 \caption{200 OK}
 \label{TC3.1}
@@ -259,7 +257,7 @@ Ensure that the server return HTTP 1.1 response 404 when a requested resource do
 
 \subsubsection{Input}
 \begin{itemize}
-\item \textit{HTTP Request} GET: \texttt{nonexistingfile.txt}
+\item \textit{HTTP Request} GET: \texttt{"nonexistingfile.txt"}
 \item Run test
 \end{itemize}
 
@@ -269,6 +267,7 @@ Ensure that the server return HTTP 1.1 response 404 when a requested resource do
 \end{itemize}
 
 \begin{figure}[H]
+\centering
 \includegraphics[scale=0.7]{output_clarification/404NOTFOUND.png} 
 \caption{404 Not Found}
 \label{TC3.2}
@@ -281,7 +280,7 @@ Ensure that the server return HTTP 1.1 response 403 when the requested resource 
 
 \subsubsection{Input}
 \begin{itemize}
-\item \textit{HTTP Request} GET: \texttt{../secret.html}
+\item \textit{HTTP Request} GET: \texttt{"../secret.html"}
 \item Run test
 \end{itemize}
 
@@ -291,6 +290,7 @@ Ensure that the server return HTTP 1.1 response 403 when the requested resource 
 \end{itemize}
 
 \begin{figure}[H]
+\centering
 \includegraphics[scale=0.7]{output_clarification/403FORBIDDEN.png} 
 \caption{403 Forbidden}
 \label{TC3.3}
@@ -302,7 +302,7 @@ Ensure that the server return HTTP 1.1 response 400 when the URL is malformed.
 
 \subsubsection{Input}
 \begin{itemize}
-\item \textit{HTTP Request} GET: \texttt{\%index.html}
+\item \textit{HTTP Request} GET: \texttt{"\%index.html"}
 \item Run test
 \end{itemize}
 
@@ -312,6 +312,7 @@ Ensure that the server return HTTP 1.1 response 400 when the URL is malformed.
 \end{itemize}
 
 \begin{figure}[H]
+\centering
 \includegraphics[scale=0.7]{output_clarification/400BADREQUEST.png} 
 \caption{Bad Request}
 \label{TC3.4}
@@ -329,7 +330,7 @@ The system should response within 2 seconds when no more than 100 users access t
 \item Perform test case 1.4
 \item \textit{Thread Group} Users: 100
 \item \textit{Thread Group} Loop Count: 1000
-\item \textit{HTTP Request} GET: \texttt{index.html}
+\item \textit{HTTP Request} GET: \texttt{"index.html"}
 \item Run test
 \end{itemize}
 
@@ -339,11 +340,38 @@ The system should response within 2 seconds when no more than 100 users access t
 \end{itemize}
 
 \begin{figure}[H]
+\centering
 \includegraphics[scale=0.5]{output_clarification/HighLoad.png} 
 \caption{Maximum Server Response Time}
 \label{TC4.1}
 \end{figure}
 
+\newpage
+
+\section{Requirement: 5 Access Log}
+
+Before each test in this section perform test case 1.4 in order to start the server and assure it runs correctly.
+
+\subsection{Get Picture (Manual)}
+
+When a user has accessed a picture from the web servers shared resource container it should be stated in the access log.
+
+\subsubsection{Input}
+\begin{itemize}
+\item Open a web browser
+\item Input \texttt{"localhost:8080/images/works.png"} into the address bar
+\item Press enter
+\item \textit{The picture should be shown in the web browser}
+\item Naviagate to the log.txt location and open the access log
+\end{itemize}
+
+
+\subsubsection{Output}
+\begin{itemize}
+\item \texttt{"Clientthread \# served file : works.png"} should be printed in the log file \textit{(\# represents the thread number)}
+\end{itemize}
+
+\newpage
 \section{Informal Requirement: Usability}
 
 \subsection{Faulty Parameter (Manual)}
@@ -384,7 +412,10 @@ A help section with information about the web server and how to use it should be
 \item \texttt{2017 Software Development Company (SDC)}
 \end{itemize}
 
+\newpage
 \section{Informal Requirement: Security}
+
+Before each test in this section perform test case 1.4 in order to start the server and assure it runs correctly.
 
 \subsection{HTTPS (Manual)}
 
@@ -392,7 +423,6 @@ The web server shall use \textit{HTTPS} as standard.
 
 \subsubsection{Input}
 \begin{itemize}
-\item Perform test case 1.4
 \item Open a web browser
 \item Enter \texttt{"https://localhost:8080"} into the address bar
 \item Press enter
@@ -404,11 +434,33 @@ The web server shall use \textit{HTTPS} as standard.
 \end{itemize}
 
 \begin{figure}[H]
+\centering
 \includegraphics[scale=0.5]{output_clarification/TC1-1.png} 
 \caption{Output for successfully starting server}
 \label{TC6.1}
 \end{figure}
 
+\subsection{Trace (JMeter)}
+
+The web server shall have Trace disabled to prevent \textit{Cross Site Tracing} attacks.
+
+\subsubsection{Input}
+\begin{itemize}
+\item \textit{HTTP Request} TRACE:
+\item Run test
+\end{itemize}
+
+\subsubsection{Output}
+\begin{itemize}
+\item Server response with response code 405 \textit{(See fig. \ref{TC7.1})}
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{output_clarification/405METHODNOTSUPORTED.png} 
+\caption{405 Method Not Supported}
+\label{TC7.1}
+\end{figure}
 
 \end{document}
 
