@@ -346,7 +346,7 @@ The system should response within 2 seconds when no more than 100 users access t
 
 \section{Informal Requirement: Usability}
 
-\subsection{Show Help Text When Faulty Parameter Is Given}
+\subsection{Faulty Parameter (Manual)}
 
 The web server should show help text informing the user on how to start the server when the user gives a faulty command line argument. 
 
@@ -362,9 +362,31 @@ The web server should show help text informing the user on how to start the serv
 \item The text \texttt{"Enter a valid port 1-65 535 and a optional URL"} is shown in the console window
 \end{itemize}
 
+\subsection{--help Command (Manual)}
+
+A help section with information about the web server and how to use it should be shown when the input \texttt{--help} is given as parameter.
+
+\subsubsection{Input}
+\begin{itemize}
+\item Navigate to the MyWebServer.jar folder in the console window
+\item Input \texttt{"java -jar MyWebServer.jar --help"}
+\item Press enter
+\end{itemize} 
+
+\subsubsection{Output}
+\textbf{Text that shall be shown in console window}
+\begin{itemize}
+\item \texttt{MyWebServer}
+\item \texttt{To start the server enter java -jar MyWebServer.jar <Port> <Shared Resource>}
+\item \texttt{The Port need to be 1-65 535 and unused}
+\item \texttt{The user who starts the server needs to have read-access to the shared resource}
+\item \texttt{Licence: GPL-2.0}
+\item \texttt{2017 Software Development Company (SDC)}
+\end{itemize}
+
 \section{Informal Requirement: Security}
 
-\subsection{HTTPS}
+\subsection{HTTPS (Manual)}
 
 The web server shall use \textit{HTTPS} as standard.
 
