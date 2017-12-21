@@ -85,7 +85,7 @@
 
 \section{Licence Compatibility}
 \textbf{Requirement 4: The server should be released under GPL-2.0} \\
-MyWebServer has previously been released under MIT which is compatible with GPL-2.0 and it should not cause any complications. However, to avoid release complications the server should be distributed with \textit{OpenJDK} which is licensed under GPL-2.0. The server executable should also be striped of \textit{JUnit 4.12} which is licensed under ELC and is therefore not compatible with GPL-2.0. It would also be preferred to remove \textit{Mockito} from the executable even if it's released under MIT which is compatible with GPL-2.0. 
+MyWebServer has previously been released under MIT which is compatible with GPL-2.0 and it should not cause any complications. However, to avoid release complications the server should be distributed with \textit{OpenJDK} which is licensed under GPL-2.0. The server executable should also be striped of \textit{JUnit 4.12} which is licensed under ELC and is therefore not compatible with GPL-2.0. It would also be preferred to remove \textit{Mockito} from the executable even if it's released under MIT which is compatible with GPL-2.0 \cite{•}. 
 
 
 \section{Traceability Matrix}
@@ -95,23 +95,23 @@ MyWebServer has previously been released under MIT which is compatible with GPL-
 \multicolumn{8}{|c|}{Requirement Matrix} \\ \hline
 Requirement	& Reqs		& Req. 1	& 	Req. 2	&  Req. 3	& Req. 5 	& Informal	& Informal	\\ 
 Identifiers		& Tested	&				&				& 				&				&	Req. 1	&	Req. 2	\\ \hline
-Test Cases	&	34			&	1			&	4			&	16			&	3			&	8			&	2			\\ \hline
-1.1				& 				&				&				&	X			&				&	X			&				\\ \hline
-1.2				& 				&				&				&	X			&				&	X			&				\\ \hline
-1.3 				& 				&				&				&	X			&				&	X			&				\\ \hline
-1.4				&				&				&				&  X			&				&	X			&				\\ \hline
-2.1				&				& 				& 				&	X			&	X			&	X			&				\\ \hline
-2.2				&				&				& 				&	X			&	X			&	X			&				\\ \hline
-3.1				&				&				& X			&	X			&				&				&				\\ \hline
-3.2				&				&				& X			&	X			&				&				&				\\ \hline
-3.3				&				&				& X			&	X			&				&				&				\\ \hline
-3.4				&				&				& X			&	X			&				&				&				\\ \hline
-4.1				& 				&	X			& 				&	X			&				&				&				\\ \hline
-5.1				&				&				&				&	X			&	X			&				&				\\ \hline
-6.1				&				&				&				&	X			&				&	X			&				\\ \hline
-6.2				&				&				&				&	X			&				&	X			&				\\ \hline
-7.1				&				&				&				&	X			&				&				& X			\\ \hline
-7.2				&				&				&				&  X			&				&				& X			\\ \hline
+Test Cases	&	38			&	1			&	4			&	16			&	3			&	10			&	4			\\ \hline
+1.1				& 	2			&				&				&	X			&				&	X			&				\\ \hline
+1.2				& 	3			&				&				&	X			&				&	X			& X			\\ \hline
+1.3 				& 	3			&				&				&	X			& X			&	X			&				\\ \hline
+1.4				&	2			&				&				&  X			&				&	X			&				\\ \hline
+2.1				&	2			& 				& 				&	X			&				&	X			&				\\ \hline
+2.2				&	3			&				& 				&	X			& X			&	X			&				\\ \hline
+3.1				&	2			&				& X			&	X			&				&				&				\\ \hline
+3.2				&	2			&				& X			&	X			&				&				&				\\ \hline
+3.3				&	2			&				& X			&	X			&				&				&				\\ \hline
+3.4				&	2			&				& X			&	X			&				&				&				\\ \hline
+4.1				& 	4			&	X			& 				&	X			& 				& X			& X			\\ \hline
+5.1				&	3			&				&				&	X			& X			& X			&				\\ \hline
+6.1				&	2			&				&				&	X			&				& X			&				\\ \hline
+6.2				&	2			&				&				&	X			&				& X			&				\\ \hline
+7.1				&	2			&				&				&	X			&				&				& X			\\ \hline
+7.2				&	2			&				&				&  X			&				&				& X			\\ \hline
 
 \end{tabular}
 
@@ -195,6 +195,7 @@ Test Case 		& OS		& Expected Output		& Actual Output		& Date		& Pass		\\ \hline
 \label{HSc}
 \end{figure}
 \newpage
+
 
 
 \end{document}
