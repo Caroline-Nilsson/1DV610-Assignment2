@@ -11,7 +11,6 @@
 \usepackage[absolute]{textpos}
 \usepackage[top=2cm, bottom=2.5cm, left=3cm, right=3cm]{geometry}
 
-
 \newsavebox{\mybox}
 \newlength{\mydepth}
 \newlength{\myheight}
@@ -85,7 +84,7 @@
 
 \section{Licence Compatibility}
 \textbf{Requirement 4: The server should be released under GPL-2.0} \\
-MyWebServer has previously been released under MIT which is compatible with GPL-2.0 and it should not cause any complications. However, to avoid release complications the server should be distributed with \textit{OpenJDK} which is licensed under GPL-2.0. The server executable should also be striped of \textit{JUnit 4.12} which is licensed under ELC and is therefore not compatible with GPL-2.0. It would also be preferred to remove \textit{Mockito} from the executable even if it's released under MIT which is compatible with GPL-2.0 \cite{•}. 
+MyWebServer has previously been released under MIT which is compatible with GPL-2.0 and it should not cause any complications \footnote{https://www.gnu.org/licenses/license-list.en.html\#Expat}. However, to avoid release complications the server should be distributed with \textit{OpenJDK} which is licensed under GPL-2.0 \footnote{http://openjdk.java.net/legal/gplv2+ce.html}. The server executable should also be striped of \textit{JUnit 4.12} which is licensed under ELC and is therefore not compatible with GPL-2.0 \footnote{http://junit.org/junit4/license.html} \footnote{https://www.gnu.org/licenses/license-list.en.html\#EPL}. It would also be preferred to remove \textit{Mockito} from the executable even if it's released under MIT which is compatible with GPL-2.0. 
 
 
 \section{Traceability Matrix}
@@ -195,7 +194,5 @@ Test Case 		& OS		& Expected Output		& Actual Output		& Date		& Pass		\\ \hline
 \label{HSc}
 \end{figure}
 \newpage
-
-
 
 \end{document}
