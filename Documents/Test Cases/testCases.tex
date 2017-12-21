@@ -89,7 +89,7 @@ This section provides Test Cases for Use Case 1 starting the server. Below is a 
 \subsection{Unavailable socket (Manual)}
 
 The system shall notify the administrator if the provided port socket is unavailable.\\
-\textbf{Test Input} \\ Port socket: 80 \textit{incorrect} \\ Shared resource: MyWebServer-master\ 12.15.02/tests/se/lnu/http/resources/inner/ \\ \textit{correct}
+\textbf{Test Input} \\ Port socket: 80 \textit{(incorrect)} \\ Shared resource: MyWebServer-master\ 12.15.02/tests/se/lnu/http/resources/inner/ \\ \textit{(correct)}
  
 \subsubsection{Input}
 \begin{itemize}
@@ -115,11 +115,11 @@ The system shall notify the administrator if the provided port socket is unavail
 \subsection{Restriction on shared resource container (Manual)}
 
 The system shall give an error when the shared resource container is protected.\\
-\textbf{Test Input} \\ Port socket: 8080 \textit{correct} \\ Shared resource: \texttt{/var/root/} (MAC) \texttt{/root/} (Linux) \\ \textit{incorrect}
+\textbf{Test Input} \\ Port socket: 8080 \textit{(correct)} \\ Shared resource: \texttt{/var/root/} (MAC) \texttt{/root/} (Linux) \\ \textit{(incorrect)}
  
 \subsubsection{Input}
 \begin{itemize}
-\item input \texttt{"java -jar MyWebServer.jar 8080 /root/ on Linux or /var/root on Mac"}
+\item input \texttt{"java -jar MyWebServer.jar 8080 /root/"} on Linux or \texttt{"/var/root"} on Mac
 \item Press enter
 \end{itemize} 
 
