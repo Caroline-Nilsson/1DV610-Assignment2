@@ -119,7 +119,7 @@ The system shall give an error when the shared resource container is protected.\
  
 \subsubsection{Input}
 \begin{itemize}
-\item input \texttt{"java -jar MyWebServer.jar 8080 /var/www/"}
+\item input \texttt{"java -jar MyWebServer.jar 8080 /root/ on Linux or /var/root on Mac"}
 \item Press enter
 \end{itemize} 
 
@@ -151,7 +151,7 @@ The system shall report when the access log could not be written to.\\
 
 \subsubsection{After test}
 \begin{itemize}
-\item Remove log.txt \texttt{"chflags nouhcg log.txt \&\& rm -f log.txt"} on Mac and \texttt{"rm -f log.txt"} on Linux
+\item Remove log.txt \texttt{"chflags nouchg log.txt \&\& rm -f log.txt"} on Mac and \texttt{"rm -f log.txt"} on Linux
 \end{itemize}
 
 \subsection{Starting Server (Manual)}
