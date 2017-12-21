@@ -3,6 +3,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{times}
 \usepackage{multirow}
+\usepackage{float}
 \usepackage{amssymb}% http://ctan.org/pkg/amssymb
 \usepackage{pifont}% http://ctan.org/pkg/pifont
 \usepackage[utf8]{inputenc}
@@ -114,63 +115,82 @@ Test Cases	&	34			&	1			&	4			&	16			&	3			&	8			&	2			\\ \hline
 
 \end{tabular}
 
-
-
+\newpage
 \section{Test Cases - Result}
+
+\textit{\cmark = Pass, \xmark = Fail} \\
 
 \begin{tabular}{| c | l | l | l | l | c |}
 \hline
 
-Test Case 				& OS			& Expected Output			& Actual Output			& Date			& Pass		\\ \hline
-\multirow{2}{*}{1.1}	& Mac		&									&								&					&	\cmark			\\ \cline{2-6}
-							& Linux		& Unable to connect		& As expected			& 21/12			& \cmark	\\			 						&				& Socket 80 was taken	& Port is taken			& 21/12			& \xmark
-\\ \hline
-\multirow{2}{*}{1.2}	& Mac		&									&								&					&				\\ \cline{2-6}
-							& Linux		& No access too folder	&	HTTP Server			& 21/12			&	\xmark			\\ 
-							&				&	/root/							& Started					&					&				\\ \hline
-\multirow{2}{*}{1.3}	& Mac		&									&								&					&				\\ \cline{2-6}
-							& Linux		& Cannot write to server	& HTTP Server			& 21/12			&	\xmark			\\ 
-							&				& log file log.txt				&	Started					&					&			\\ \hline
-\multirow{2}{*}{1.4}	& Mac		&									&								&					&				\\ \cline{2-6}
-							& Linux		& HTTP Server Started	& As expected			& 21/12			& \cmark			\\ 
-							&				& It Works						& As expected			& 21/12			& \cmark \\ \hline
-\multirow{2}{*}{2.1}	& Mac		&	Unable to connect		&								&					&				\\ \cline{2-6}
-							& Linux		& Unable to connect		& As expected			& 21/12			& \cmark				\\ \hline
-
-\multirow{2}{*}{2.2}	& Mac		& HTTP Server stopped	&								&					&				\\ \cline{2-6}
-							& Linux		& HTTP Server stopped	& Only written in		&	21/12		& \xmark			\\ 
-							&				& written in access log	&	console					& 					& \\ \hline
-\multirow{2}{*}{3.1}	& Mac		& Response Code 200	& As expected 		& 21/12			& \cmark	\\ \cline{2-6}
-							& Linux		& Response Code 200	& As expected 		& 21/12			& \cmark	\\ \hline
-\multirow{2}{*}{3.2}	& Mac		& Response Code 404 	& As expected 		& 21/12			& \cmark	\\ \cline{2-6}
-							& Linux		& Response Code 404	& As expected 		& 21/12			& \cmark	\\ \hline
-\multirow{2}{*}{3.3}	& Mac		& Response Code 403	& As expected 		& 21/12			& \cmark	\\ \cline{2-6}
-							& Linux		& Response Code 403	& As expected 		& 21/12			& \cmark	\\ \hline
-\multirow{2}{*}{3.4}	& Mac		& Response Code 400	& As expected 		& 21/12			& \cmark	\\ \cline{2-6}
-							& Linux		& Response Code 400	& As expected 		& 21/12			& \cmark	\\ \hline
-\multirow{2}{*}{4.1}	& Mac		&									&							&					&				\\ \cline{2-6}
-							& Linux		& Response time <2000	& 87 ms				& 21/12			& \cmark	\\ \hline
-\multirow{2}{*}{5.1}	& Mac		&									&							&					&				\\ \cline{2-6}
-							& Linux		& Clientthread <nr>		&	Only written in	&	21/12		& \xmark	\\
-							&				& served file : works.png&	console				&					&				\\ \hline
-\multirow{2}{*}{6.1}	& Mac		&									&							&					&				\\ \cline{2-6}
-							& Linux		&	Enter a valid port 		&	As expected		& 21/12			& \cmark	\\
-							&				& 1-65 535 and a 			&							&					&				\\
-							&				&	optional URL				&							&					&				\\ \hline
-\multirow{2}{*}{6.2}	& Mac		&									&							&					&				\\ \cline{2-6}
-							& Linux		&\textit{See fig. \ref{HSc}}& Enter a valid port& 21/12		& \xmark	\\ 	
-							&				&									& 1-65 535 and a	&					&				\\
-							&				&									& optional URL		&					&				\\ \hline
-\multirow{2}{*}{7.1}	& Mac		&									&							&					&				\\ \cline{2-6}
-							& Linux		& It Works						& Secure connection& 21/12		& \xmark	\\ 
-							&				&									& failed					&					&				\\ \hline
-\multirow{2}{*}{7.2}	& Mac		& Response Code 405	& As expected		& 21/12			& \cmark	\\ \cline{2-6}
-							& Linux		& Response Code 405	& As expected		& 21/12			& \cmark	\\ \hline	
-
-
+Test Case 		& OS		& Expected Output		& Actual Output		& Date		& Pass		\\ \hline
+\multirow{2}{*}{1.1}    & Mac		& Unable to connect		& As expected		& 21/12	        &\cmark		\\ 
+			&		& Socket 80 was taken		& Port is taken		& 21/12		&\xmark		\\ 
+\cline{2-6}		& Linux		& Unable to connect		& As expected		& 21/12		& \cmark	\\
+			&		& Socket 80 was taken		& Port is taken		& 21/12		& \xmark	\\ \hline
+\multirow{2}{*}{1.2}	& Mac		& No access to folder		& HTTP Server 		& 21/12		& \xmark	\\ 
+			&		& /var/root/			& Started		&		&		\\
+\cline{2-6}		& Linux		& No access too folder		& HTTP Server 		& 21/12		& \xmark	\\ 
+			&		& /root/			& Started		&		&		\\ \hline
+\multirow{2}{*}{1.3}	& Mac		& Cannot write to server	& HTTP Server 		& 21/12		& \xmark	\\ 
+			&		& log file log.txt		& Started		&		&		\\
+\cline{2-6}		& Linux		& Cannot write to server	& HTTP Server		& 21/12		& \xmark	\\ 
+			&		& log file log.txt		& Started		&		&		\\ \hline
+\multirow{2}{*}{1.4}	& Mac		& HTTP Server Started		& As expected		& 21/12		& \cmark 	\\ 
+			&		& It Works			& As expected		& 21/12		& \cmark 	\\
+\cline{2-6}		& Linux		& HTTP Server Started		& As expected		& 21/12		& \cmark	\\ 
+			&		& It Works			& As expected		& 21/12		& \cmark 	\\ \hline
+\multirow{2}{*}{2.1}	& Mac		& Unable to connect		& As expected		& 21/12		& \cmark	\\
+\cline{2-6}		& Linux		& Unable to connect		& As expected		& 21/12		& \cmark	\\ \hline
+\multirow{2}{*}{2.2}	& Mac		& HTTP Server stopped		& Only written in	& 21/12		& \xmark	\\
+			&		& written in access log		& console		& 		& 		\\
+\cline{2-6}		& Linux		& HTTP Server stopped		& Only written in	& 21/12		& \xmark	\\ 
+			&		& written in access log		& console		& 		& 		\\ \hline
+\multirow{2}{*}{3.1}	& Mac		& Response Code 200		& As expected 		& 21/12		& \cmark	\\
+\cline{2-6}		& Linux		& Response Code 200		& As expected 		& 21/12		& \cmark	\\ \hline
+\multirow{2}{*}{3.2}	& Mac		& Response Code 404 		& As expected 		& 21/12		& \cmark	\\
+\cline{2-6}		& Linux		& Response Code 404		& As expected 		& 21/12		& \cmark	\\ \hline
+\multirow{2}{*}{3.3}	& Mac		& Response Code 403		& As expected 		& 21/12		& \cmark	\\
+\cline{2-6}		& Linux		& Response Code 403		& As expected 		& 21/12		& \cmark	\\ \hline
+\multirow{2}{*}{3.4}	& Mac		& Response Code 400		& As expected 		& 21/12		& \cmark	\\
+\cline{2-6}		& Linux		& Response Code 400		& As expected 		& 21/12		& \cmark	\\ \hline
+\multirow{2}{*}{4.1}	& Mac		& Response time <2000		& 127 ms		& 21/12		& \cmark	\\
+\cline{2-6}		& Linux		& Response time <2000		& 87 ms			& 21/12		& \cmark	\\ \hline
+\multirow{2}{*}{5.1}	& Mac		& Clientthread <nr>		& Only written in	& 21/12		& \xmark	\\
+			&		& served file : works.png 	& console		&		&		\\
+\cline{2-6}		& Linux		& Clientthread <nr>		& Only written in	& 21/12		& \xmark	\\
+			&		& served file : works.png 	& console		&		&		\\ \hline
 \end{tabular}
-\begin{figure}
 
+\newpage
+
+\begin{tabular}{| c | l | l | l | l | c |}
+\hline
+
+Test Case 		& OS		& Expected Output		& Actual Output		& Date		& Pass		\\ \hline
+\multirow{2}{*}{6.1}	& Mac		& Enter a valid port		& As expected		& 21/12		& \cmark	\\
+			&		& 1-65 535 and a 		&			&		&		\\
+			&		& optional URL			&			&		&		\\
+\cline{2-6}		& Linux		& Enter a valid port		& As expected		& 21/12		& \cmark	\\
+			&		& 1-65 535 and a 		&			&		&		\\
+			&		& optional URL			&			&		&		\\ \hline
+\multirow{2}{*}{6.2}	& Mac		& \textit{See fig. \ref{HSc}}	& Enter a valid port	& 21/12		& \xmark	\\
+			&		&				& 1-65 535 and a	&		&		\\
+			&		&				& optional URL		&		&		\\
+\cline{2-6}		& Linux		& \textit{See fig. \ref{HSc}}	& Enter a valid port	& 21/12		& \xmark	\\ 	
+			&		&				& 1-65 535 and a	&		&		\\
+			&		&				& optional URL		&		&		\\ \hline
+\multirow{2}{*}{7.1}	& Mac		& It Works			& Safari could not	& 21/12		& \xmark	\\
+			&		&				& open page		&		&		\\
+\cline{2-6}		& Linux		& It Works			& Secure connection	& 21/12		& \xmark	\\ 
+			&		&				& failed		&		&		\\ \hline
+\multirow{2}{*}{7.2}	& Mac		& Response Code 405		& As expected		& 21/12		& \cmark	\\
+\cline{2-6}		& Linux		& Response Code 405		& As expected		& 21/12		& \cmark	\\ \hline	
+\end{tabular}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{help_screen.png}
 \caption{Help screen}
 \label{HSc}
 \end{figure}
